@@ -1,0 +1,100 @@
+"""
+Graphs: Breadth First Traversals
+
+    Level First Traversals - In trees they mean the same thing but level first is only in trees
+
+    instead of diving depe down the graph as far as possible before backtracking the minimum
+    amount we progress down all edges evenly from a central starting point
+
+        instead of using a stack for the traversal we use a queue
+
+    Node: 5 middle
+
+        were going to explore all the clost neighbors to the middle
+
+            that means the nodes that are all one edge distant
+
+        then were goint oe xplore all the next closest neighbors to node 5
+
+            that means the nodes that are all two edges distant
+
+        then 3 edges away...so on so forth
+
+    Breadth First Bullseye
+
+        each ring is their respective depth out
+
+    keep track of a global visited set
+
+    keep a queue of nodes to be visited
+
+    add the starting node
+
+    while the queue isnt empty
+
+        dequeue a node
+
+        if that node hasnt been visited
+
+            add the node to the visited set
+
+            visit the node
+
+            for all the nodes neighbors
+
+                enqueue the neighbor
+
+    Some common ones:
+
+        shortest path finding
+
+        web crawling/scraping
+
+    some that you can also do with DFT:
+
+        finding cycles
+
+        finding connected components
+
+Connected Components:
+
+    connected components are like islands in the graph 
+
+        separate subsegments or islands that are only conected to eachother
+
+        or completely alone.
+
+    Algorithm:
+
+        counter: 0 
+
+        Visited: 
+            0 not visited
+            counter: 1
+            1 visited from node 0
+            2 visited from node 0
+            3 not visited
+            counter: 2
+            4 visited from node 3
+            5 not visited
+            counter: 3
+            6 visited from node 3
+            7 visited from node 0
+            8 visited from node 0
+
+    Keep track of a global visited set
+
+    set a counter to 0
+
+    for every node
+
+        if it hasnt been visited
+
+            traverse from that node
+
+            increment your coutner
+
+    return the counter
+
+    
+"""

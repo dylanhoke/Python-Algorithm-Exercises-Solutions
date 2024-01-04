@@ -1,0 +1,34 @@
+"""
+Binary trees are linked lists that have more than one next nodes.
+
+binary search tree's adhere to certain rules:
+    all nodes left of a node have to be smaller
+    all nodes right of that node has to be larger
+
+    whats most important is that one side of the node options is larger and one side is smaller
+
+Binary Search Trees are linked listst that have node patterns
+
+leaf nodes are the nodes that are at the bottom and dont have any next options
+
+    the highest node needs EVERYTHING to one side being smaller or larger.
+
+if the highest node is larger than its branches but smaller than 1 leaf it is not a binary
+search tree
+
+if statements make comparisons between each pointer inside of these searches
+
+binary search trees are Log(n)
+    meaning they have exponential growth which isnt the fastest right off the bat but it is
+    best effective when searching large amounts of information
+
+Inserting into a binary search tree:
+
+    use an if statement to move the cursor down the tree
+        cur = cur.left
+
+    from here we need to determine if our number is greater or less than our current node
+        cur.right = new Tree(3)
+    
+    
+"""

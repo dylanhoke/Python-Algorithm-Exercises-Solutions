@@ -1,0 +1,154 @@
+"""
+Graphs
+
+    Nodes - points
+
+    edges - connections
+        notice how some edges are one way and some are two way graphs where
+        all the edges are two way are undirected this is a directed graph
+
+            if all the directions on a graph are one way its directed
+
+            if some of the directions are two way it is undirected
+
+            some nodes may have no connections
+
+    Cycle - this graph contains at least on cycle if you start at certrain nodes
+            you can get back to them when traversing the graph
+
+                a graph with a cycle is cyclic
+
+                    every two way connection creates a cycle
+
+                    visiting longer cycles are possible too 
+
+                a graph without a cycle is acyclic
+
+    Head of the Graph?
+
+        The Graph - if youre working with a graph you just start at the node you need
+        to for a particular algorithm
+
+        Any case when you have things connected to other things
+
+Adjaceny Lists
+
+    Connections all over the place
+
+    adj_list = [
+        
+        [0, 1, 2],
+        [2, 3],
+        [0],
+        [4],
+        [2,1],
+        []
+    ]
+
+    node_values = [23, 18, 6, 98, 12, 37]
+
+    the adjacency list can ocntain in dexes of nodes or maybe references to the node objects themselves
+
+    a = Node(32)
+
+    b = Node(67)
+
+    c = Node(8)
+
+    a.adj_list = [b, c]
+
+    b.adj_list = [a]
+
+    c.adj_list = [b, c, a]
+
+        Takeaway:
+
+            there are lots of ways to represent graphs with adjacency lists
+
+        Important Factors:
+
+            you must be able to identify the  edges from a node when given that node
+
+                (either by its index number or by a reference)
+            
+            you must be able to determine the value of a node when given that node
+
+                (either by its index number or by a reference)
+
+Adjaceny Matrices
+
+    Adjacency Matrix
+
+        Rows and Columns will both be equal to the numebr of nodes
+
+        adj_matrix = [
+        
+        [1, 1, 1, 0, 0, 0],
+        [0, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0],
+        [0, 1, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+        ]
+
+Graph: Depth-First Traversals
+
+    this actually works just like DFT on a tree in that we want to visitn every node that
+    you can in a graph from a given starting point.
+
+        with one significant exception: cycles!
+
+        you dont want to get caught in an infinite loop!
+
+        if your graph structure has no cycles, no problem
+
+        but if it does or could you have to take steps to prevent it
+
+    If you start walking the tree and come back to a place youve already
+    visited there must be a cycle
+
+        during traversal we have to keep track of where weve been
+
+        Start from node 1
+
+            visited backtracked
+                1
+                23
+                65
+                17
+                92
+                backtrack along our path
+                    17
+                72
+                    17
+                    65
+                    23
+                    1
+
+    like with trees a recursive DFT algorithm can be used:
+
+        dft form a starting node:
+
+            if weve visited this node
+
+                return
+        
+        visit this node do whatever is is you have to do
+
+        mark the node as visited
+
+        for each neighbor
+
+            DFT the neighbor
+
+    Time Complexity:
+
+        since we are visint all n nodes the time is linearlya proportional to the
+        number of nodes O(n) time complexity.
+
+        with the recursive algorithm we have to allocate a new stack frame each
+        call. with the recursive algorithm we have to allocate a new stack frame
+        each call. worst case is that well go all the way deep before returning
+        imagine running this on a linked list. O(n) auxiliary space complexity
+        in the worst case
+    """

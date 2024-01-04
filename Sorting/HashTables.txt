@@ -1,0 +1,115 @@
+"""
+Hash Tables or Hash Maps
+
+    Hash tabels store collections of data
+
+    the data are identified by a key
+
+    the data are sometimes called values
+
+    so a key can be used to set or get a value that corresponds to that key
+
+    when building a hash table keep this in mind
+        the key is what you arleady have or know
+        the value is what you want to know
+
+    example
+        you wnat to tget the count of the elephants in the reserve
+        elephant is what you already know
+
+        the numebr of elepehants on the reserve is what you w3ant to know
+        so its the value
+    
+    the key can be a variety of different datat types but it depends on the
+    language
+
+    string snd integers are universally supported as keys
+
+    the value can typically be any data type
+
+    the Hash Table abstract data type suppor two main operations
+
+        get(key) get the value for a key
+
+        set(key, value) set the value for a key
+
+            put(key, value) is sometimes used
+        
+    setting a keys value overwrites any previous value of it exists
+
+    Hash Tables have an awesome time complexity
+
+    to look up a value by its key is O(1) over the number of items in the hash table
+
+    contrast this to O(n) li9near search time through an array or O(log n) search time
+    with a binary search
+
+    behind the scenes hash table data values are contained in a big array
+
+    a function called the hashing functino takes the key you give it and
+    turns that into an index intot he aray in O(1) time over the number of values
+    contained in the hash table and then the value can be extracted from the array
+    in O(1) time 
+
+    key > hashing function > index > array > value
+
+    lets say you have a collection of values and you want to search the collection
+    to retrieve a value
+
+    with an array its O(n)
+
+    but if you load the data into a has table and use a key to identify it you can
+    do a number of lookups each in O(1) time.
+
+    it takes O(n) time to load the hash table but its worth it if youre doing multiple
+    lookups
+
+    if you have some long runing procvess that is repreatable you can run it once
+    and cache the result in a hash table
+
+    the key for the table would be the inputs for the long running process
+
+    the value in the table would be the outputs of the long running process
+
+    example web browser cache
+
+        key is the URL
+        value is the data and type of data
+
+    you can use caching with function calls
+
+        input of the function as a key
+        result of the function as a value
+
+    for super fast results
+
+    fi you have an array of data and you watned to know how many of certain types
+    of numbers there were for example you could process the tatat and store the result
+    in a hash table
+
+    for example to count how many even and odd numbers there were in an array you could
+    loop through and load the results into a hash table
+
+        key even or odd
+        value for each key how many even numbers and odd numbers there were
+
+    if you have a collectino of records that show for example employee name
+    and department you might wonder which employees are in what departments
+
+    you can process the records once loading them into a hash table at O(n)
+    and then make as many lookups by department as you want at O(1)
+
+        key the department name
+        value an array with all the employee names in that department
+
+    Python:
+
+        m = {}
+
+        m["elephant"] = 37
+
+        m["goat"] = 928
+
+        print(m["elephant"], m["goat"])
+
+"""

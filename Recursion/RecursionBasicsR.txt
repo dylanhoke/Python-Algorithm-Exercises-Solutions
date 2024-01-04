@@ -1,0 +1,61 @@
+"""
+Recursion:
+a function calling itself to get work done.
+
+Define the problem in a recursive way.
+
+uses the solution to the problem as part of the solution
+
+    Subproblems
+
+iterively solving problems
+
+Pyramid Printing
+
+n to n-1 recursion
+
+function print_vals(n):
+    print(n)
+    print_vals(n-1)
+
+base case is a stop case that causes the recursion to stop
+
+if  (n <= 0):
+    return
+
+if (n > 0):
+    print(n)
+    print(n-1)
+
+recursive reverse:
+
+if (n > 0):
+    print(n-1)
+    print(n)
+
+queues the function in multiple stages:
+
+lines up alternate timelines of  1 2 3 where it spits out the
+function for when n was previous
+
+wherever there is a loop there is a recursive solution
+
+f(5) = 5 + f(4)
+
+f(n = n + f(n-1)
+
+if n > 0:
+    f(n) = n + f(n - 1)
+
+recursion means there is a function on both sides of the equals sign
+
+the remaining parts of the function must drive the function as a whole back to the base case
+
+     0 is the base case
+
+def f(n):
+    if n == 0
+        return 0 
+    
+    return n + f(n - 1)
+"""

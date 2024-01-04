@@ -1,0 +1,69 @@
+"""
+#############################################################################
+Abstract Data Types (ADT)
+Stacks ADT
+Push: put something on top of the stack
+Pop: remove something from the top of the stack
+
+Last In First Out
+L.I.F.O
+
+Build's the stack in reverse operational order:
+putting in 1...2...3 will in turn produce 
+3...2...1
+
+Pushing n onto the stack:
+
+    n = new ListNode(7)
+
+    n.next = head #makes the item after 7, 3
+
+    head = n turns 7 into the new head
+
+Popping head off the stack:
+
+    old_head = head #old head = 7
+
+    head = head.next #head = 3
+
+    old_head.next = None # makes old head null
+
+    return old_head
+
+Edge cases:
+
+    When the array is empty or the head of the list is null
+#############################################################################
+The Queue ADT
+Enqueue: put somethign at the end of the queue
+Dequeue: remove something from the front of the queue
+    operations take place at both ends of the queue
+
+First In First Out
+F.I.F.O
+
+First thing you put in the queue is the first thing that comes
+out of the queue like a magazine.
+
+Enqueue with a Linked List Queue:
+
+    n = new ListNode(7) # create a 7 inside the space
+
+    tail.next = n # connects the 7 to the end of the queue
+
+    tail = n # makes the tail of the queue the new value
+
+Dequeue with a Linked List queue:
+    
+    old_head = head # make a copy of the head reference to maintain the 3
+
+    head = head.next # moves the head assignment to the 4 which was after the 3
+
+    old_head.next = None # removes the connection from the Linked List
+
+    return old_head # returns what you just removed
+
+Edge Cases:
+    
+    what if the queue is empty? 
+"""

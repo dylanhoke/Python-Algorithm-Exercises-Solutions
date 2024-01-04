@@ -1,0 +1,120 @@
+"""
+Sorting things allows us to perform actions easier.
+
+Many functions cannot use unsorted data.
+
+python uses sort() to sort an array or sorted() to return a new array
+
+    a.sort() modifies a
+
+    b = sorted(a) creates a new sorted array without modifying a
+
+we dont want to sort numbers alphabetically where 46 comes before 6
+#############################################################################
+Bubble Sort
+
+Thinking Algorithmically
+
+    Pseudo-code thinking
+        think about how you sort something IRL
+
+    Step One: compare the first two numbers index 0 1
+        if they are not in order swap them
+    
+    Step Two: compare the next two numbers index 1 2
+        if they are out of order swap them
+    
+    Step Three: compare the next two numbers index 2 3
+        if they are out of order swap them
+            swapped
+    
+    Step Four: compare 3 4
+
+    This will continue until the largest number is all the way at the last indicie
+
+    Bubble sort means that the numbers will bubble up from the end and go to their
+    final position.
+
+    The sort then gets 95 to the end and restarts at the beginning to bring 89 up
+
+    compared every element in the array and swapped all the elements that were
+    out of order
+
+    Left to Right
+
+    loop for each pass:
+        loop index for each Pass
+            copmare element at index with element at index + 1
+            if out of order
+                swap elements
+        if no swaps occurred break out
+    
+    ^^^ Bubble Sort ^^^
+
+    We had n elements and had n-1 passes
+
+    we had to make n-1 comparisons on the first pass
+
+    then n - 2 on the second
+
+    and so on
+    
+    if we plot the total number of comparisons for all n = 10 elements
+
+    O(n^2) is our time complexity for this sort this is a very fcommon time
+    complexity for simple sorts like 
+        bubble sort
+        insertion sort
+        selection sort
+
+    its not as good as the O(n logn)
+        quick sort
+        merge sort
+        heap sort
+
+    the average built in language sort will be O(n log n) 
+
+    Bubble sort is excelleent when the list is almost sorted with just one
+    element that needs sorting
+
+    Quicksort should not be used on an almost sorted list
+
+Insertion Sort
+
+    Start at the front check its left
+
+    were checking if the number behind our number is bigger than the number
+    were on
+
+    index 3 is smaller than index 2 so swap indeices 3 and 2 swap
+    index 2 now is smaller than index 1 so indeices 2 and 1 swap
+
+    youre basically sorting from the front to the back and by the time it reaches
+    the end it should all be sorted
+
+    Build as you go Sort
+
+    Snake Sort the Snake eats the next index and swallows it and puts it in the
+    right spot
+
+    we need to build a case for the smallest number
+        if the index goes to the front and falls off the list there needs to be
+        stoppage to let it know that its at the end
+
+    loop for each target number
+        while target number is greater than the one before it and its not
+        at index 0
+            swap target number with the previous
+    
+    optimization: you dont actually need to swap each time swapping involves
+    two reads and two writes
+
+    you can just copy the higher number to the current position then after the
+    inner loop completes copy the target numebr to its final position
+
+    in orther owrds theres no need to move the target number until the very end
+
+    element n is compared against n elements which makes it O(n^2)
+
+    
+"""

@@ -1,0 +1,113 @@
+"""
+Linear Search Algorithm
+    is the value at index 0 what were looking for?
+        no
+    is index 1 our value?
+        no
+    is index 2?...
+
+    or we fall off the end in that case we did not find
+    what we were looking for.
+
+    this is O(n) time complexity
+
+    HOW?
+    start index at 0
+
+    while the index is less than the array length
+        if the value at this index is what we want 
+            return the index
+        increment index
+
+    return -1 for False to indicate not found if it
+    falls off
+
+    with a linked list:
+        start the current pointer at the head
+            while the pointer is not null
+                if the value at the current is what we want
+                    return the index
+                set current to current.next
+
+            return -1 to indicate list fall off
+    
+    BST only works on ordered data in a tree
+
+    Linear Search works with unordered data in an array or list
+#############################################################################
+Binary Search
+
+    search a sorted array much m ore quickly than with linear search
+    this is like searching a book of alphabetized nbames for a specific name
+
+        you dont search every name from the beginning
+        
+        you do jump tot he middle and then decide to look right or left
+    
+            our data must be sorted
+
+            the individual elements of data can be accessed randomly in O(1)
+            time
+        
+        choose the middle index of the remaining numbers
+
+            first index is 0
+
+            last index is 10
+
+            0 + 10 // 2 == middle
+
+            middle index i == 5
+
+            is this our number?
+                no
+            is our number less than or greater than?
+                greater
+
+        find the middle of the remaining elements
+
+            is this number what were looking for?
+                no
+            is our number less than or greater than?
+                less than
+
+        find the middle of the remaining numbers
+
+            is this our number?
+                no
+            less than or greater than?
+                greater
+            
+        find the middle of the remaining numbers
+
+            is this our number?
+                yes
+
+   keep alow index that starts at 0
+
+   keep a high index that starts at the length of the array minus 1
+
+   while the low index <= the high index
+
+        compute the middle index between the low and high (integer average!)
+
+        if the gvalue in the middle is the one youre looking for
+            return the index
+        
+        if the value in  the middle is less than the one youre looking for
+            sett he low index tot he middle + 1
+        
+        else th evalue in the middle is greater than the one youre looking for
+            set the high index to the middle - 1
+
+    return -1 to indicate it wasnt found
+
+sorting your search before you search is much slower
+
+binary search is MUCH faster but you have to sort it first
+
+as the numbers get higher Linear Searches 5000 iterations is 5125000 comparisons
+when with Binary Search we sort 10240 + 50,000 comparisons which is WAY faster
+60240 < 5125000
+Binary Search wins!
+"""

@@ -1,0 +1,114 @@
+"""
+Breadth First Search Overview
+
+    Find the shortest path from one node to another
+
+        similar to a breadth first traversal
+
+            except we stop when we find our destination node
+
+            and we keep track of the path so far as we go
+
+    useful for:
+
+        finding a node in a graph
+
+        finding the shortest pathfrom one node to another in a graph
+
+    there is also such a thing as a depth first search but it might find a roundabout
+    long path to the destination instead of the shortest
+
+    depth first stearch might be more convenient for finding all the paths from one node
+    to another
+
+    Shortest Path possible:
+
+        Path so far to the nodes in the queue
+
+            shortest path to 0 is 0
+
+            shortest path to 7 is 0 - 4 - 7
+
+        Head of Queue: 0
+
+            dequeue the head and look at its last element, which is 0:
+
+            Visited:
+                0
+
+            entire path from 0 to 6 is 0 - 6
+
+            entire path from 0 to 4 is 0 - 0
+
+            now the queue looks like this:
+
+                [0, 6]
+                [0, 4]
+
+        Next iteration:
+
+        Now if any of the neighbors had been the destination you found it
+
+            Dequeue the head of the queue which is [0, 6]
+
+                new head of queue: [0, 4]
+
+            look at the last element of the dequeued head which is 6
+
+            visited: 
+                0
+                6
+
+            add the path to its unvisited neighbors to the queue if any
+
+            of the unvisited neighbors are the destination return that path
+
+                dead end
+
+        Next Iteration:
+
+            dequeue the new head [0, 4], and look at its last element 4
+
+            add all the paths that are connect to [0, 4]
+
+        Queue Route:
+
+            queue:
+                [0] load in 6 - 4
+                ##############################################
+                [0, 6] cannot load
+                [0, 4] load in neighbors 7 - 3 check 7 check 3
+                ##############################################
+                [0, 4, 7] load in neighbors - 1 
+                [0, 4, 3] load in neighbors 2 - 5
+                ##############################################
+                [0, 4, 7, 1] loaded and waiting
+                [0, 4, 3, 2] loaded and waiting
+                [0, 4, 3, 5] FOUND
+
+    if the start and end node are th same return path
+    
+    declare an empty visited set
+
+    declare an empty queue
+
+    add the path [start] to the queue
+
+    while the queue is not empty
+
+        dequeue the current path its last element is the current node
+
+        mark the current node as visited
+
+        for each of the current nodes neighbors
+
+            compute the neighbors path as the [current path + the neighbor]
+
+            if the niegbor is the end node return the neighbor path
+
+            if the nieghbor isnt visited enqueue the neighbor path
+
+    return an empty path
+
+    
+"""

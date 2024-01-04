@@ -1,0 +1,136 @@
+"""
+#############################################################################
+Linked Lists:
+
+Linked Lists do not allow you to search the list by index
+you only have reference to the head of the lsit and you have
+to do all your work starting from the head of the list
+
+Search by Index:
+
+    cur = head
+    index = 0
+    # start a current pointer at the head and initialize the index 
+    counter to 0
+
+    if the index is the one were looking for return the current node
+    else move current to the next node. increment index
+
+    cur = cur.next
+    # moves the pointer one index to the right
+    index++
+    # index is now 1
+
+    if this is the one were looking for return the new current node
+    else move current to the next next node.
+
+    cur = cur.next
+    index++
+    # index is now 2
+
+    if this is the index were looking for return the current node
+    YES! This is the index were looking for.
+
+Search by Value
+
+    cur = head
+
+    if this node holds the correct value you've found it
+    else move cur
+
+    cur = cur.next
+
+    if this node holds the correct value you've found it
+    else move cur
+
+    cur = cur.next
+
+    if this node holds the correct value you've found it
+    YES! You've found it!
+
+Edge Cases:
+
+    what if the node isnt found?
+
+    when you walk off the end of the list you didnt find it
+
+    maybe return none in that case to indicate "not found"
+#############################################################################
+Inserting Into A Linked List
+
+Find the place to insert the node
+Rearrange the surrounding pointers to include it.
+you dont have to rearrange all the pointers, were just wiring the new node
+into the list
+
+Insert:
+
+    p = my_list.find_by_value(4) 
+    # uses the previous strategy to search
+    through the list
+
+    You can also use a while loop (while true and list.value is > something)
+
+    n = new ListNode(9) 
+    # make a new node
+
+    New node is now just floating around in space its n.next = None
+    at the moment
+
+    n.next = p.next 
+    # sets the floating nodes next to the next of the number
+    we searched for
+
+    p.next = n
+    # assigns the p.next to the new value of 9
+
+    9 took 4's destination and then 4 made its new destination 9
+
+Edge Cases:
+
+    inserting at the head
+        a typical lists head is none if the list is empty
+
+    inserting at the tail
+#############################################################################
+Deleting Nodes From A Linked List
+
+Find the node before the one to delte
+Rearrange the surrounding pointers cut out the node to delete
+
+Delete:
+
+    Delete the node with the value 9
+
+    use chasing pointers to find the node to delete and the node before it
+
+    prev = head
+    cur = prev.next
+    #creates two pointers that are right next to eachother
+
+    if cur is the node were looking for chop it out
+    else both pointers scoot over
+
+    prev = prev.next
+    cur = cur.next
+    # scoots the pointers over
+
+    if cur is the node were looking for chop it out
+    TIME FOR WORK
+
+    prev.next = cur.next
+    # moves prev's destination over cur 
+
+    cur.next = None
+    # detaches cur from the Linked List
+    
+    return cur
+
+Edge Cases:
+    Deleting from the head:
+        a typical lists head is null if the list is empty
+        if deleting the head the head variable has to be updated
+
+    Deleting from the tail:
+        Handled by the general case?????
+"""

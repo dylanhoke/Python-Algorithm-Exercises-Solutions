@@ -1,0 +1,182 @@
+"""
+Binary Tree Recursive Search:
+
+    Define the recursion first
+
+    The pointers make each search node another search tree
+        subtrees
+
+    if the value is less than roots value
+        recursively search the left BST
+
+    else
+        recursively search the right BST
+
+        when you find the right node return True
+        if you fall off the end return False
+
+    when you get through the majority of recursions searching nothing yet is
+        returned somehow that value has to get back to the first call fire
+        brigade style
+    START 1
+        is this 12?
+            no
+        is this bigger than 12?
+            yes
+            left
+    END 1
+#############################################################################
+    START 2
+        is this 12?
+            no
+        is this bigger than 12?
+            no
+            right
+    END 2
+#############################################################################
+    START 3
+        is this 12?
+            no
+        is this bigger than 12?
+            yes
+            left
+    END 3
+#############################################################################
+    START 4
+        is this 12?
+            yes
+            return True
+    END 4
+    Binary Tree Level First Traversal
+
+    What is a traversal?
+        a traversal means youre visiting ALL of the nodes of a data structure.
+
+    you can traverse a linked list by visitying all of the nodes in the linked
+    list you can traverse a binary tree by visiting all the nodes in the tree
+
+    Trees can do two different types of traversal
+
+        breadth first or level first traversals
+
+        depth first traversals
+
+            3 different subcategories
+                preorder
+                in-order
+                post order
+#############################################################################
+Level First Traversal
+
+    each layer of the christmas tree 20 10 30 5 15 35 3 12 17 40
+
+    useful for finding the shortest path from finding one thing to another
+        maze
+
+    if i am at a node i want to note which nodes to visit next
+        cur = root
+            left node, right node = 10 , 30
+        
+    the i take the first off the list 10 and visit that
+        cur = root.left
+        cur.next = root.right
+    
+    then i add the next neighbors to the end of the list
+        cur.next,cur.next.next = cur.left, cur.right
+        cur = root.right
+    
+    then i add 30s neighbors to the list
+        cur.next = 35
+        cur = cur.next
+        cur.next = cur.left
+    
+    this is a queue data structure to handle this level first traversal
+    algorithm
+
+        root node in queue
+            queue maintains order
+        while loop while our queue isnt empty  dequeue a node
+        visit that node
+        add its left neighbor and right neigbors to the queue
+        if they are not null
+#############################################################################
+Depth First Traversal
+
+    depth first dives down one of the arms of the tree as deep as it can
+    looks for the value and then comes back
+
+    we can go left from 20
+    we can go left from 10
+    we can go left from 5
+    can we go left or right from 3?
+        no
+    can we go right from 5?
+        no
+    can we go right from 10?
+        yes
+    can we go left from 15?
+        yes
+    can we go left or right from 12?
+        no
+    can we go right from 15?
+        yes
+    can we go left or right from 17?
+        no
+    can we go right from 20?
+        yes
+    back up is it possible to go right
+        yes
+    cant go left go right from 30
+    cant go left go right from 35
+    cant go left or right from 40
+
+    final order
+    20 10 5 3 15 12 17 30 35 40
+
+    how does this work?
+        cur = head 20
+        cur = cur.left 10 
+        cur.left, cur.right = 5, 15
+        cur.next = cur.left
+        cur = cur.left 5
+        cur.next = cur.left
+        cur.left = 3
+        cur.next = cur.right
+        cur = cur.right 15
+        cur.left, cur.right = 12, 17
+        cur.next = cur.left
+        cur = cur.left 12
+        cur.next = cur.right
+        recursion(
+        cur = cur.right 17
+        cur.next = cur.right
+        cur = cur.right 30
+        cur.next = cur.right
+        cur = cur.right 35
+        cur.next = cur.right
+        cur = cur.right 40
+        )
+
+    20 10 5 3 15 12 17 30 35 40
+
+        def dft(root):
+            if root == null:
+                return
+            (((
+            print(root.value)
+            dft(root.left)
+            dft(root.right
+            )))
+            ^^^MIXES THESE UP^^^
+            changes the order completely
+
+    pre order: visit the node then go left and right
+        preorder traversals are useful for making a copy of a tree
+
+    in order: go left then visit the node then go right
+        in order traversals are useful for getting the contents of a BST back in sorted order
+
+    post order: go left then right then visit
+        post order traversals are useful for delteing a tree if your language makes you do that manually
+
+"""

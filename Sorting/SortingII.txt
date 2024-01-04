@@ -1,0 +1,246 @@
+"""
+Quick Sort
+
+    This is a divide and conquer algorithm that sorts in O(n log n)
+    time in the average case
+
+    We'll repeatedly split the problem into two smaller subproblems
+        hint RECURSION
+    
+    Each pass through the data sorts twice as many numbers as the last
+        hint maybe a log n in there somewhere
+    
+    contrast to insertion sort that only sorted the one number at a time
+
+        Partition - Subset or subslice of an array
+
+    Partitioning Step: choose the first number in the partition to be
+    the pivot
+
+    move the first number to the middle and determine which numbers
+    are smaller and larger than the middle the middle being the pivot
+
+    the middle fot he list is now SORTED the Partition value is sorted
+
+    so now that we have a middle that has created two partitions
+        now with 2 pivot values
+    
+    the two subpartitions have now been moved with the smaller values on one
+    side and the larger values on the other
+
+    if the final partition is just one number then the case needs to be
+    made that they must be sorted because theres no more partitioning to
+    be done
+
+    the left partition needs to be ready to hand the falling off edge case
+
+    during passes the number of partitions doubles each time its run
+
+    we have n elements each pass throught he array gets twice as many elements
+    sorted as the last pass first we sorted 1 number then 2 then 4 8 16 32
+
+    when we double the amount of work this is a log n process
+
+    we have n elements, going through each log n process.
+
+    O(n log n)
+
+    HOW TO DO IT
+
+        one way is to build up two new sets of numbers largera nd smaller than the pivot
+            two different sets of numbers one array smaller and one larger
+        now concatenate the smaller middle and larger numbers into a new array
+
+        But can we do it inplace? without allocating more memory?
+
+        choose the first element as the pivot
+            start looping through the remaining elements
+        
+        if the selected number is less than the pivot we need to move it before
+        the pivot
+
+        swap the selected number with the one directly after the pivot
+        
+        swap the pivot with the number directly after the pivot
+
+        iterate through the entire list and make the pivot the number that comes after
+        numbers that are smaller than it
+
+            6 3 9 2 7 5 8 4 11 1 10
+
+            3 6 9 2 7 5 8 4 11 1 10
+
+            3 6 2 9 7 5 8 4 11 1 10
+
+            3 2 6 9 7 5 8 4 11 1 10
+
+            3 2 6 5 7 9 8 4 11 1 10
+
+            3 2 5 6 7 9 8 4 11 1 10
+
+            3 2 5 6 4 9 8 7 11 1 10
+
+            3 2 5 4 6 9 8 7 11 1 10
+
+            3 2 5 4 6 1 8 7 11 9 10
+
+            3 2 5 4 1 6 8 7 11 9 10
+
+         is 9 smaller than 6 no so keep going
+         is 2 smaller than 6 yes so do the second step
+            swap the 2 and the 9
+            swap the 2 and pivot
+        7 is not less than 6 so we keep going
+        5 is less than 6
+            swap 5 and 9
+            swap 5 and pivot
+         8 is larger than 6 so we do nothing
+         4 is smaller than 6 so we swap
+            swap 4 and 7
+            swap 4 and pivot
+        so on
+        partitioned
+
+        quicksort an array:
+            if the length of the array is <=1 return the array
+            partition the array into left and right halves
+            quicksort the left half
+            quicksort the right half
+            concatenate the left pivot and right
+            return the concatentation
+        
+        Recursion is the quicksorting of the left and right halves before concatenation
+
+        def quicksort(a):
+            if a.len < = 1:
+                return a
+            
+            left, pivot, right = partition(a)
+
+            return quicksort(left) + [pivot] + quicksort(right)
+        
+        #partition is where the magic happens above this is the overall structure of the quicksort
+
+        quicksort an array from index i0 to index i1
+            if the length between the indices is <= 1return 
+            partiton in place the array from index i0 to index i1
+            quicksort the array from index i0 to the pivot(left half)
+            quicksort the array from the pivot + 1 to i1(right half)
+        
+        for the first call i0 starts at 0 and i1 starts at the length of the array
+
+        def quicksort(a):
+
+            def qs(i0, i1):
+                if i1 - i0 <= 1:
+                    return 
+            
+            pivot_index = partition(a, i0, i1)
+
+            qs(i0, pivot_index)
+            qs(pivot_index + 1, i1)
+
+        qs(0, a.length)
+
+        return a
+Merge Sort
+
+    O(n log n)
+
+    well repeatedly split the problem into two smaller suproblems
+
+    each pass throughout he data sorts twice as many numbers as the last
+
+    merge sort takes placee in two phases
+        split the data in halves repeatedly until each half is 0 or 1 elements long
+        merge each pair of halves repeatedly until you end up with one big list
+
+    the merge operation merges two lists and keeps them in sorted order
+
+    phase 1 splits lists in half until you get down to lists of length 0 or 1
+
+    phase 2 merge lists back together maintaining sorted order
+
+        break into individual elements and use the merge function to put them in order again
+
+    HOW TO DO IT
+
+    splitting in half
+        
+        we want to :
+            split off the left half of the list
+            recursively plass it into the function
+            stop recursing when the list is 0 or 1 elements long
+        
+        def split_left(a):
+            if a.length <= 1:
+                return
+            
+            middle_index = a.length / 2
+
+            left_half = slice(a, 0, middle_index)
+
+            split_left(left_half)
+        
+        if we runt his code and print out the array at the top of the function we get:
+            2, 8, 9, 5, 4, 4, 1, 7, 2, 3
+            2, 8, 9, 5, 4
+            2, 8,
+            2
+        
+        to get both halves we want to:
+            split off the left half of the list
+            split off the right half of the list
+            recursively pass the left half into the function
+            recursively pass the right half into the function
+            stop recursing when the list is 0 or 1 elements long
+        
+        def mergesort(a):
+            
+            if a.length <= 1:
+                return a
+
+            middle_index = a.length / 2
+
+            left = mergesort(slice(a, 0, middle_index))
+            right = mergesort(slice(a, middle_index, a.length))
+        
+        so we have al the halves but somehow we have to put them back together
+        and return them
+
+            return merge(left, right)
+        
+        what happens when one of the halves runs out of elements before the
+        end of the list
+
+        we have to check if theres anything left in the first list
+
+        the right list should already be sorted because it was merged
+        before 
+
+        so after the first list is used up the last elements should be in
+        sorted order
+
+            def merge(A, B):
+                while there are still elements in A and B to process:
+                    if the smallest is the next in A
+                        add the next in A to the result
+                    else:
+                        add the next in B to the result
+                    
+                while there are still elements in A to process:
+                    append them to the result
+                
+                while there are stil elements in B to process:
+                    append them to the result
+    Time Complexity
+
+        everytime we are splitting something in half we have to consider log n
+        complexity
+
+        then we merge from every single elemenet to log n
+
+        O(n log n)
+    
+    
+"""
