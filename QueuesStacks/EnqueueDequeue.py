@@ -11,14 +11,6 @@ class ListStack:
     def __init__(self):
         self.head = None
 
-    # def tail(self, head):
-
-    #     self.tail = head
-
-    #     while head is not None:
-    #         self.tail = self.tail.next
-    #     return self.tail
-
     def enqueue(self, value): #adds to the end of the list
 
         n = ListNode(value) #creates new node
@@ -70,10 +62,3 @@ def solution(ops):
             stack.dequeue()
 
     return LinkListed(stack.head)
-
-    # while current is not None:
-    #     if 'e' in current.value:
-    #         number  = current.value.split()
-    #         current.next = number.isdigit()
-    #         current = current.next
-    #         print(numbers)

@@ -11,7 +11,7 @@ class ListStack:
         self.head = None
         self.size = 0
     
-    def pop(self) -> str:
+    def pop(self):
         if self.size < 1:
             return None
         popped = self.head
@@ -27,10 +27,10 @@ class ListStack:
         self.size += 1
         return toPush.value
 
-    def __bool__(self):
-        if self.size == 0:
-            return False
-        return True
+    # def __bool__(self):
+    #     if self.size == 0:
+    #         return False
+    #     return True
     
 class Stack:
 
@@ -43,15 +43,9 @@ class Stack:
     def push(self, item: str):
         return self.stack.append(item)
 
-    def __len__(self):
-        return len(self.stack)
-
 def solution(sequence: str) -> bool:
 
-    if sequence is None:
-        return False
-    
-    if len(sequence) == 1:
+    if sequence is None or len(sequence) == 1:
         return False
     
     stack = ListStack()

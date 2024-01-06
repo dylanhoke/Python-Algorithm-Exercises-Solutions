@@ -18,7 +18,7 @@ def solution(requests):
 
     def insert(x):
 
-        right = left.push(x)
+        left.push(x)
         
     def remove():
         
