@@ -1,5 +1,5 @@
 class Tree(object):
-    def __int__(self, x):
+    def __init__(self, x):
         self.value = x
         self.left = None
         self.right = None
@@ -18,12 +18,12 @@ def solution(root:Tree, value:int) -> Tree:
         else:
            cur =  cur.right
            
-    cur = Tree(value)
+    new_node = Tree(value)
 
     if value < branch.value:
-        branch.left = cur
+        branch.left = new_node
     else:
-        branch.right = cur
+        branch.right = new_node
 
 
     # if value < root.value:

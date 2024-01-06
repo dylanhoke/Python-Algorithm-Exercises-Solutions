@@ -9,10 +9,10 @@ def solution(root):
     
     if root is not None:
         
-        solution(root.left)
+        left_subtree = solution(root.left)
         
-        solution(root.right)
+        right_subtree = solution(root.right)
         
-        root.left, root.right = root.right, root.left
+        root.left, root.right = right_subtree.right, left_subtree.left
     
     return root

@@ -1,6 +1,5 @@
 def solution(connections:list[list[int]]) -> bool:
 
-
     visited = set()
 
     def dfs(start:int) -> bool:
@@ -13,9 +12,7 @@ def solution(connections:list[list[int]]) -> bool:
 
         for neighbor in connections[start]:
 
-            cyclic = dfs(neighbor)
-
-            if cyclic:
+            if dfs(neighbor):
                 
                 return True
             
@@ -25,9 +22,7 @@ def solution(connections:list[list[int]]) -> bool:
 
     for node in range(len(connections)):
 
-        detectCycle = dfs(node)
-
-        if detectCycle:
+        if dfs(node):
             return True
         
     return False

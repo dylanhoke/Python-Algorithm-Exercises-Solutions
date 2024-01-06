@@ -19,11 +19,11 @@ def solution(root:Tree, value:int):
         else:
             cur = cur.left
         
-    cur = Tree(value) # assignment  
+    new_node = Tree(value) # assignment  
     
     if value > Branch.value: # the reference assignment
-        Branch.right = cur
+        Branch.right = new_node
     else:
-        Branch.left = cur
+        Branch.left = new_node
     
     return root

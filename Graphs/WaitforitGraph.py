@@ -3,7 +3,7 @@ def solution(connections):
     
     visited = set()
     
-    def dfs(start):
+    def dfs(start, parent):
         
         if start in visited:
             
@@ -12,12 +12,14 @@ def solution(connections):
         visited.add(start)
         
         for neighbor in connections[start]:
-            
-            cyclic = dfs(neighbor)
-            
-            if cyclic:
+
+            if neighbor != parent:
+
+                cyclic = dfs(neighbor, start)
                 
-                return True
+                if cyclic:
+                    
+                    return True
                 
         visited.remove(start)
         
@@ -25,7 +27,7 @@ def solution(connections):
         
     for node in range(len(connections)):
         
-        detectCycle = dfs(node)
+        detectCycle = dfs(node, None)
         
         if detectCycle:
             
