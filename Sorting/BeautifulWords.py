@@ -17,9 +17,7 @@ def solution(inputString):
     
     for char in sorted(char_count.keys()):
         
-        if prev_char is not None:
-            
-            if ord(char) - ord(prev_char) > 1 or char_count[char] > char_count[prev_char]:
+        if prev_char is not None and (ord(char) - ord(prev_char) > 1 or char_count[char] > char_count[prev_char]):
                 
                 return False
                 

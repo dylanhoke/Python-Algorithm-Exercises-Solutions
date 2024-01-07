@@ -30,3 +30,23 @@ def solution(names):
             result.append(new_name)
             
     return result
+
+from collections import defaultdict
+
+# def solution(names):
+#     name_count = defaultdict(int)
+#     result = []
+
+#     for name in names:
+#         new_name = name
+#         count = name_count[name]
+
+#         while new_name in name_count:
+#             count += 1
+#             new_name = f"{name}({count})"
+
+#         name_count[name] = count
+#         name_count[new_name] += 1
+#         result.append(new_name)
+
+#     return result

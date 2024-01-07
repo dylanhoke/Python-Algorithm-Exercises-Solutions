@@ -4,25 +4,30 @@ def solution(a):
 
         isSorted = []
 
-        i = j = 0
+        i = j = inversion = 0
 
         while i < len(left) and j < len(right):
 
-            if left[i] < right[j]:
+            if left[i] <= right[j]:
 
                 isSorted.append(left[i])
                 i += 1
             else:
                 isSorted.append(right[j])
                 j += 1
+
+                inversion += len(left) - i 
         
         if i < len(left):
             isSorted += left[i:]
 
         if j < len(right):
             isSorted += right[j:]
+
+        # isSorted.extend(left[i:])
+        # isSorted.extend(right[j:])
         
-        return isSorted
+        return isSorted, inversion
             
     def mergesort(arr:list[int]):
 

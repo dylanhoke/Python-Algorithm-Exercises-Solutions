@@ -28,3 +28,12 @@ def solution(a):
     groups.append(sorted(cur_group))
     
     return sorted(groups)
+
+# for i in range(len(mean_indices)):
+#         mean, index = mean_indices[i]
+
+#         if i > 0 and mean != mean_indices[i - 1][0]:
+#             groups.append(sorted(cur_group))
+#             cur_group = [index]
+#         else:
+#             cur_group.append(index)
