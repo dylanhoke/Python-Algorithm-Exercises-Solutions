@@ -4,13 +4,10 @@ class Tree(object):
     self.left = None
     self.right = None
 def solution(root, value):
-    
     if root is None:
         return False
-
     if root.value == value:
         return True
-    
     elif root.value < value:
         return solution(root.right, value)
         # cur = cur.right

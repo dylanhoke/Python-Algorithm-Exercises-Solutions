@@ -4,15 +4,8 @@ class Tree(object):
     self.left = None
     self.right = None
 def solution(root):
-    
-    result = []
-    
     if root is not None:
-        
-        left_subtree = solution(root.left)
-        
-        right_subtree = solution(root.right)
-        
-        root.left, root.right = right_subtree.right, left_subtree.left
-    
+        root.left, root.right = root.right, root.left
+        solution(root.left)
+        solution(root.right)
     return root
