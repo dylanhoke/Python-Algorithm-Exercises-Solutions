@@ -5,25 +5,20 @@ class ListNode(object):
 
 def solution(head, index):
     if head is None:
-        return head.next
+        return None
     if index < 0:
         return None
-
     if index == 0:
-        return head.next
-        
+        return head.next  
     current = head
     prev = None
     count = 0
-    
     while current is not None and count < index:
         prev = current
         current = current.next
         count += 1
-        
     if count == index and current is not None:
         prev.next = current.next
     elif count <= index:
         return None
-        
     return head 

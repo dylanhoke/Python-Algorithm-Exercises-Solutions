@@ -7,13 +7,10 @@ def solution(l, value):
     if l is None:
         l = newNode = ListNode(value)
         return l
-        
-    if l is None or l.value > value:
+    if l.value > value:
         newNode.next = l
         return newNode
-    
     current = l
-    
     while current.next is not None and current.next.value <= value:
         current = current.next
     newNode.next = current.next
